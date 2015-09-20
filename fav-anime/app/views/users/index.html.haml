@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Listing Users
+%table
+  %thead
+    %tr
+      %th Nickname
+      %th{:colspan => "3"}
+  %tbody
+    - User.all.to_a.each do |user|
+      %tr
+        %td= user.nickname
+        %td= link_to 'Show', user_path(id: user.id)
+%br/
+= link_to 'New User', new_user_path

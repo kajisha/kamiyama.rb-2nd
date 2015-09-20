@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @anime.title
+= link_to 'Edit', edit_anime_path(@anime)
+|
+= link_to 'Back', animes_path

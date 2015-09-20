@@ -1,0 +1,15 @@
+= form_for(@anime) do |f|
+  - if @anime.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@anime.errors.count, "error")
+        prohibited this anime from being saved:
+      %ul
+        - @anime.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .actions
+    = f.submit

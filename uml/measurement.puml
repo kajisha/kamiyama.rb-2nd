@@ -1,0 +1,27 @@
+@startuml{images/measurement.png}
+title 観測・測定パターン
+
+object ":観測対象" as obj
+
+object ":測定" as measurement1
+object "体重:観測型" as measurement_type1
+object ":量" as quantity1
+quantity1:value = 75
+object ":単位" as unit1
+unit1:unit = Kg
+
+object ":カテゴリ観測" as measurement2
+object "血液型:観測型" as measurement_type2
+object "A" as quantity2
+quantity2:value = A
+
+obj -- measurement1
+measurement1 -- measurement_type1
+measurement1 -- quantity1
+quantity1 -- unit1
+
+obj -- measurement2
+measurement2 -- measurement_type2
+measurement2 -- quantity2
+
+@enduml

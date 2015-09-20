@@ -1,0 +1,22 @@
+%p#notice= notice
+%p
+  %strong Nickname:
+  = @user.nickname
+
+%h2 あなたがスキなアニメ
+%ul
+  - @favorites.each do |fav|
+    %li
+      = fav.title
+      = link_to 'キライになった', dislike_anime_user_path(anime_id: fav.id, id: @user.id), method: :post
+
+%h2 あなたがスキなアニメを見ている人はこんなアニメも見ています
+%ul
+  - @recommends.each do |reco|
+    %li
+      = reco.title
+      = link_to 'スキ', favorite_anime_user_path(anime_id: reco.id, id: @user.id), method: :post
+
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'Back', users_path
